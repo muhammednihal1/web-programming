@@ -1,0 +1,75 @@
+<html>
+<head>
+   <title>Registration Form</title>
+</head>
+<body bgcolor="#CCCCFF">
+<center>
+  <h2>Registration Form</h2>
+  <form name="form1" method="get" action="url">
+    <fieldset style="width: 500px; border: 2px solid black; padding: 30px;">
+      <table>
+        <tr>
+          <td>First Name:</td>
+          <td><input type="text" name="fname" size="25" maxlength="25"></td>
+        </tr>
+        <tr>
+          <td>Last Name:</td>
+          <td><input type="text" name="lname" size="25" maxlength="25"></td>
+        </tr>
+        <tr>
+          <td>DOB:</td>
+          <td><input type="date" id="dob" name="dob" required></td>
+        </tr>
+        <tr>
+          <td>Gender:</td>
+          <td>
+            Male <input type="radio" id="male" name="gender" value="male">
+            Female <input type="radio" id="female" name="gender" value="female">
+          </td>
+        </tr>
+        <tr>
+          <td>Phone:</td>
+          <td><input type="text" name="phone" size="10" maxlength="10"></td>
+        </tr>
+        <tr>
+          <td>Email:</td>
+          <td><input type="text" name="email" size="25" maxlength="25"></td>
+        </tr>
+        <tr>
+          <td>Password:</td>
+          <td><input type="password" id="password" name="password" maxlength="25" required></td>
+        </tr>
+        <tr>
+          <td>Confirm Password:</td>
+          <td><input type="password" id="confirm_password" name="confirm_password" required></td>
+        </tr>
+        <tr>
+          <td>Region:</td>
+          <td>
+            <select name="region">
+              <option value="Asia">ASIA</option>
+              <option value="Europe">EUROPE</option>
+              <option value="South America">SOUTH AMERICA</option>
+              <option value="North America">NORTH AMERICA</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>Languages Known:</td>
+          <td>
+            English <input type="checkbox" id="english" name="language" value="english"><br>
+            Hindi <input type="checkbox" id="hindi" name="language" value="hindi"><br>
+            Malayalam <input type="checkbox" id="malayalam" name="language" value="malayalam"><br>
+            German <input type="checkbox" id="german" name="language" value="german">
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" align="center">
+            <input type="submit" name="submit" value="Submit">
+            <input type="reset" name="reset" value="Reset">
+          </td>
+        </tr>
+      </table>
+    </fieldset>
+  </form
+
