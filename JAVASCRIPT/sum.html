@@ -1,0 +1,17 @@
+<html>
+<body bgcolor="salmon">
+<h2>Sum of 10 Numbers</h2>
+    Enter 10 numbers  :<input type="text" id="numbers">
+    <button onclick="calculateSum()">Calculate Sum</button>
+    <h2 id="result"></h2>
+
+    <script>
+        function calculateSum() {
+            const input = document.getElementById('numbers').value;
+            const numbersArray = input.split(',').map(num => parseFloat(num.trim()) || 0); 
+            const sum = numbersArray.reduce((a, b) => a + b, 0);
+            document.getElementById('result').innerText = sum;    
+        }
+    </script>
+</body>
+</html>

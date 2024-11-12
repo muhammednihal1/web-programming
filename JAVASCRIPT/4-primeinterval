@@ -1,0 +1,19 @@
+<html>
+<body bgcolor="salmon">
+    <h2>Prime Numbers interval</h2>
+    Start: <input type="text" id="start">
+    End: <input type="text" id="end">
+    <button onclick="findPrimes()">Find Primes</button>
+    <h2 id="result"></h2>
+
+    <script>
+        function findPrimes() {
+            let start = +document.getElementById("start").value, end = +document.getElementById("end").value, primes = [];
+            for (let num = start; num <= end; num++) {
+                if (num > 1 && [...Array(num).keys()].slice(2).every(i => num % i)) primes.push(num);
+            }
+            document.getElementById("result").innerText = "Primes: " + primes.join(", ");
+        }
+    </script>
+</body>
+</html>

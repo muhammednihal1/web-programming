@@ -1,0 +1,18 @@
+
+<html>
+<body bgcolor="salmon">
+  <h2>Square of a Number</h2>
+  Enter a number: <input type="text" id="number">
+  <button onclick="calculateSquare()">Calculate Square</button>
+  <h2 id="result"></h2>
+
+  <script>
+    function calculateSquare() {
+      let number = parseFloat(document.getElementById("number").value);
+      let square = Math.pow(number, 2);
+      document.getElementById("result").innerText = "Square: " + square;
+    }
+  </script>
+</body>
+</html>
+
