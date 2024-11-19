@@ -1,0 +1,48 @@
+<html>
+<head>
+    <title>String and Math Operations</title>
+</head>
+<body>
+    <h3>Enter a string:</h3>
+    <input type="text" id="userInputString">
+    <br>
+
+    <h3>Enter a number:</h3>
+    <input type="number" id="userInputNumber">
+    <br>
+
+    <button onclick="performOperations()">Perform Operations</button>
+
+    <div id="output"></div>
+
+    <script>
+        function performOperations() {
+            var string = document.getElementById("userInputString").value;
+            var number = parseFloat(document.getElementById("userInputNumber").value);
+            var y = "BYE";
+            
+            var outputDiv = document.getElementById("output");
+            outputDiv.innerHTML = "";  // Clear any previous output
+
+            // String Operations
+            outputDiv.innerHTML += "<h4>String Operations:</h4>";
+            outputDiv.innerHTML += "String: " + string + "<br/>";
+            outputDiv.innerHTML += "String Length: " + string.length + "<br/>";
+            outputDiv.innerHTML += "Concatenation: " + string.concat(" ", y) + "<br/>";
+            outputDiv.innerHTML += "Uppercase: " + string.toUpperCase() + "<br/>";
+            outputDiv.innerHTML += "Lowercase: " + string.toLowerCase() + "<br/>";
+
+            // Math Operations
+            outputDiv.innerHTML += "<h4>Math Operations:</h4>";
+            outputDiv.innerHTML += "Number: " + number + "<br/>";
+            outputDiv.innerHTML += "Square Root: " + Math.sqrt(number) + "<br/>";
+            outputDiv.innerHTML += "Absolute Value: " + Math.abs(number) + "<br/>";
+            outputDiv.innerHTML += "Round Value: " + Math.round(number) + "<br/>";
+            outputDiv.innerHTML += "Ceil Value: " + Math.ceil(number) + "<br/>";
+            outputDiv.innerHTML += "Floor Value: " + Math.floor(number) + "<br/>";
+        }
+    </script>
+</body>
+</html>
+
+
