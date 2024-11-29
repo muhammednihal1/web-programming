@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>mouse</title>
+    </head>
+    <body>
+        <center>
+        <h2>Mouse hover</h2>
+        <img onmouseover="imagechange(this)" src="image1.jpeg" width="500px" height="400px" >
+            <p id="text">you can see changing of text</p>
+
+    </center>
+    </body>
+    <script>  
+    let img = ['2.jpeg','1.jpeg'];
+
+        let i = 0;
+        function imagechange(imageElement) 
+        {
+
+        imageElement.src = img[i];
+
+        document.getElementById('text').innerHTML = img[i];
+
+        i = (i + 1) % img.length;
+        }
+    </script>
+</html>
