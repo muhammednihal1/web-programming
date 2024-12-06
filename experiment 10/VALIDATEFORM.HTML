@@ -1,0 +1,47 @@
+<html>
+<head>
+  <title>Registration Form</title>
+  <style>
+    body { background: #CCCCFF; font-family: Arial; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+    .form-container { background: white; padding: 20px; border-radius: 8px; max-width: 400px; width: 100%; }
+    .error { color: red; font-size: 0.9em; }
+    input { padding: 8px; width: 100%; margin-bottom: 10px; border-radius: 4px; border: 1px solid #ccc; }
+    input[type="submit"] { background: #999; color: white; border: none; cursor: pointer; padding: 10px; border-radius: 4px; }
+    input[type="submit"]:hover { background: #888; }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Registration Form</h2>
+    <form id="f" onsubmit="return validateForm()">
+      Full Name:<i>full name</i> <input type="text" id="name"><span id="nameErr" class="error"></span><br>
+      Email: <input type="email" id="email"><span id="emailErr" class="error"></span><br>
+      Password: <input type="password" id="password"><span id="passwordErr" class="error"></span><br>
+      Confirm Password: <input type="password" id="confirmPassword"><span id="confirmPasswordErr" class="error"></span><br>
+      Phone:<i>without country code <input type="text" id="phone"><span id="phoneErr" class="error"></span><br><br>
+     <input type="reset">
+      <input type="submit" value="Register">
+    </form>
+  </div>
+
+  <script>
+    function showError(id, message) { document.getElementById(id).innerText = message; }
+    function validateForm() {
+      let isValid = true;
+      ['name', 'email', 'password', 'confirmPassword', 'phone'].forEach(f => showError(f + 'Err', ''));
+      
+      if (!document.getElementById("name").value) { showError("nameErr", "Required *"); isValid = false; }
+      if (!document.getElementById("email").value) { showError("emailErr", "Required *"); isValid = false; }
+      if (document.getElementById("password").value.length < 6) { showError("passwordErr", "Min 6 characters."); isValid = false; }
+      if (document.getElementById("confirmPassword").value !== document.getElementById("password").value) { showError("confirmPasswordErr", "Passwords don't match."); isValid = false; }
+      if (document.getElementById("phone").value.length !== 10 || isNaN(document.getElementById("phone").value)) { showError("phoneErr", "Invalid phone number."); isValid = false; }
+      
+      if (isValid) alert("All OKAY");
+      return isValid;
+    }
+    
+  </script>
+</body>
+</html>
+
+
