@@ -2,7 +2,8 @@
 <head>
     <title>Online Exam</title>
 </head>
-<body style="font-family: Arial, sans-serif; background-color: #C0C0C0; color: #2C3E50; padding: 20px; margin: 0;">
+
+<body style="font-family: 'Times New Roman', serif; font-size:20px;background-color: #C0C0C0; color: #2C3E50; padding: 70px; margin: 0;">
 
 <h1 style="color: #2980B9;">Online Exam</h1>
 
@@ -81,7 +82,8 @@
 </form>
 
 <div id="result" style="display: none; padding: 20px; background-color: #34495E; border-radius: 8px; margin-top: 20px;">
-    <h2 style="color: #fff;">Your Score: <span id="score"></span>/10</h2>
+    <h2 id="resultMessage" style="color: #fff;">Your Score: <span id="score"></span>/10</h2>
+    <button type="button" onclick="tryAgain()" id="tryAgainButton" style="background-color: #E74C3C; color: white; border: none; padding: 10px; cursor: pointer; width: 100%; margin-top: 10px; border-radius: 5px;">Try Again</button>
 </div>
 
 <script>
@@ -101,9 +103,22 @@
 
         document.getElementById('score').textContent = score;
         document.getElementById('result').style.display = 'block';
+
+        var inputs = document.querySelectorAll('input');
+        inputs.forEach(input => input.disabled = true);
+    }
+
+    function tryAgain() {
+        document.getElementById('score').textContent = '';
+        document.getElementById('result').style.display = 'none';
+
+        var inputs = document.querySelectorAll('input');
+        inputs.forEach(input => {
+            input.checked = false;
+            input.disabled = false;
+        });
     }
 </script>
 
 </body>
 </html>
-
