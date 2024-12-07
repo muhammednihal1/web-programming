@@ -1,0 +1,133 @@
+<html>
+<head>
+  <title>Registration Form</title>
+  <style>
+    body { 
+      font-family: Arial; 
+      display: flex; 
+      justify-content: center; 
+      align-items: center; 
+      height: 100vh; 
+      margin: 0; 
+      background: #CCCCFF;
+    }
+    .form-container { 
+      background: white; 
+      padding: 20px; 
+      border-radius: 8px; 
+      width: 100%; 
+      max-width: 400px; 
+    }
+    input { 
+      padding: 8px; 
+      width: 100%; 
+      margin-bottom: 10px; 
+      border-radius: 4px; 
+      border: 1px solid #ccc; 
+    }
+    input[type="submit"] { 
+      background: #999; 
+      color: white; 
+      border: none; 
+      cursor: pointer; 
+      padding: 10px; 
+      border-radius: 4px; 
+    }
+    input[type="submit"]:hover { 
+      background: #888; 
+    }
+    .error { 
+      color: red; 
+      font-size: 0.9em; 
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Registration Form</h2>
+    <form id="f" onsubmit="return validateForm()">
+      Full Name: 
+      <input type="text" id="name">
+      <span id="nameErr" class="error"></span><br>
+      
+      Email: 
+      <input type="email" id="email">
+      <span id="emailErr" class="error"></span><br>
+      
+      Password: 
+      <input type="password" id="password">
+      <span id="passwordErr" class="error"></span><br>
+      
+      Confirm Password: 
+      <input type="password" id="confirmPassword">
+      <span id="confirmPasswordErr" class="error"></span><br>
+      
+      Phone: 
+      <input type="text" id="phone">
+      <span id="phoneErr" class="error"></span><br>
+      
+      Date of Birth:
+      <input type="date" id="dob">
+      <span id="dobErr" class="error"></span><br><br>
+      
+      <input type="submit" value="Register">
+    </form>
+  </div>
+
+  <script>
+    function showError(id, message) { 
+      document.getElementById(id).innerText = message; 
+    }
+
+    function validateForm() {
+      let isValid = true;
+      ['name', 'email', 'password', 'confirmPassword', 'phone', 'dob'].forEach(f => showError(f + 'Err', ''));
+
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      const confirmPassword = document.getElementById("confirmPassword").value;
+      const phone = document.getElementById("phone").value;
+      const dob = document.getElementById("dob").value;
+
+      if (!name) { 
+        showError("nameErr", "Required *"); 
+        isValid = false; 
+      }
+      
+      const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      if (!email || !emailPattern.test(email)) { 
+        showError("emailErr", "Invalid email address."); 
+        isValid = false; 
+      }
+
+      if (password.length < 6) { 
+        showError("passwordErr", "Min 6 characters."); 
+        isValid = false; 
+      }
+
+      if (confirmPassword !== password) { 
+        showError("confirmPasswordErr", "Passwords don't match."); 
+        isValid = false; 
+      }
+
+      if (phone.length !== 10 || isNaN(phone)) { 
+        showError("phoneErr", "Invalid phone number."); 
+        isValid = false; 
+      }
+
+      if (!dob) { 
+        showError("dobErr", "Date of Birth is required."); 
+        isValid = false; 
+      }
+
+      if (isValid) {
+        alert("SUBMITTED SUCESSFULLY");
+      }
+
+      return isValid;
+    }
+  </script>
+</body>
+</html>
+
